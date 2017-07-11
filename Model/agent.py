@@ -3,7 +3,7 @@ import json
 
 class Agent:
 
- def __init__(self, data):
+ def __init__(self, **data):
   self.data = data
 
   for name,value in data.items():
@@ -14,7 +14,7 @@ class Agent:
 def main():
  # get json data
  for data in json.load(open(os.path.dirname(__file__)+"/../data/agents-100k.json")):
-    agent = Agent(data)
+    agent = Agent(**data)
     print(agent.language)
 
 
